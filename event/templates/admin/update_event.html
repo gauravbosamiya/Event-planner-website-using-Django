@@ -1,0 +1,59 @@
+{% extends 'admin/admin_base.html' %}
+{% block content %}
+
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Category</label>
+            <input type="text" value="{{data.category}}" class="form-control" name="category" readonly>
+        </div>
+
+        <div class="form-group">
+            <label>Event Name</label>
+            <input type="text" value="{{data.name}}" class="form-control" name="event_name">
+        </div>
+        <div class="form-group">
+            <label>Start Date</label>
+            <input type="date" value="{{ data.start_date|date:'Y-m-d' }}" class="form-control" name="start_date">
+        </div>
+
+        <div class="form-group">
+            <label>End Date</label>
+            <input type="date" value="{{ data.end_date|date:'Y-m-d' }}" class="form-control" name="end_date">
+        </div>
+
+        <div class="from-group">
+            <label>Description</label>
+             <input type="text" value="{{data.description}}" class="form-control" name="description">
+        </div>
+
+
+        <div class="form-group mt-3">
+            <label>Scheduled Status</label>
+            <select class="form-select form-select-sm form-control" name="scheduled_status" aria-label="Small select example">
+              <option selected>Open this select menu</option>
+              <option value="yet to scheduled" {% if data.scheduled_status == "yet to scheduled" %} selected {% endif %}> Yet to Scheduled</option>
+              <option value="scheduled" {% if data.scheduled_status == "scheduled" %}selected{% endif %}>Scheduled</option>
+            </select>
+        </div>
+
+         <div class="form-group">
+            <label>Venue</label>
+            <input type="text" value="{{data.venue}}" name="venue" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>Status</label>
+             <select class="form-select form-select-sm form-control" name="status" aria-label="Small select example">
+                <option value="disabled" {% if data.status == 'disabled' %}selected{% endif %}>Disabled</option>
+                <option value="active" {% if data.status == 'active' %}selected{% endif %}>Active</option>
+                <option value="completed" {% if data.status == 'completed' %}selected{% endif %}>Completed</option>
+
+            </select>
+        </div>
+        <input type="submit" class="btn btn-primary">
+    </form>
+</div>
+
+{% endblock content %}

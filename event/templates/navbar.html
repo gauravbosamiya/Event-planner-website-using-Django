@@ -1,0 +1,45 @@
+{% load static %}
+    <div style="background-color: #191A69;">
+    <div class="container  d-flex align-items-center justify-content-between">
+      <a href="{% url 'home' %}" class="logo d-flex align-items-center">
+        <img src="{% static 'images/logo.jpeg'%}" class="img-fluid rounded-circle circular-img logo-img" width="60" alt="Circular Image">
+        <span style="color: white;" class="ms-3 mt-2"><h5 class="fw-bold">Eventa</h5></span>
+      </a>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active nav-color" style="color: white;" href="{% url 'home'%}">Home</a></li>
+          <li><a class="nav-link scrollto" style="color:white" href="{% url 'about' %}">About</a></li>
+
+            {% if request.user.is_authenticated %}
+
+          <li class="dropdown"><a href="#" style="color: white;"><span>Event</span> <i
+                class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a class="nav-link scrollto" href="{% url 'upcoming-event' %}" style="color: white;">Upcoming Event</a></li>
+              <li><a class="nav-link scrollto" href="{% url 'past-events' %}" style="color: white;">Past Event</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="{% url 'event-category' %}" style="color:white;"><span>Categories</span></a><li>
+
+          <li><a class="nav-link scrollto" style="color:white;" href="{% url 'account' %}">Account</a></li>
+          <li><a class="nav-link scrollto" style="color:white;" href="{% url 'contact' %}">Contact</a></li>
+            <li><a class="nav-link scrollto" style="color:white;" href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+
+<!--          <li><a class="getstarted scrollto" style="background-color: #D5AF52;" href="{% url 'login'%}">Login</a></li>-->
+          <div class="dropdown ms-3">
+            <button class="btn dropdown-toggle text-white fw-bold" style="background-color: #D5AF52;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Login
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'login'%}">Login As User</a></li>
+              <li><a class="dropdown-item" href="{% url 'admin-login' %}">Login As Admin</a></li>
+            </ul>
+          </div>
+          <li><a class="getstarted scrollto" style="background-color: #D5AF52;" href="{% url 'register' %}">Sign Up</a></li>
+            {% endif %}
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+    </div></div>
+  </header><!-- End Header -->

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-3">
+
+    <div class="row">
+          <div class="col-lg-4">
+            <div class="card mb-4">
+              <div class="card-body text-center">
+
+                  <img src="{{user.avatar.url}}" class="rounded-circle img-fluid" style="width: 150px;">
+                <h2 class="my-3">{{request.user.username}}</h2>
+                <p class="text-muted mb-1">{{request.user.email}}</p>
+                <div class="d-flex justify-content-center mb-2">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <div class="col-md-8">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Name</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{request.user.name}}</p>
+                  </div>
+                </div>
+                <hr>
+                  <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Username</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{request.user.username}}</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Email</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{request.user.email}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        </div>
+
+        {% for event in user.events.all %}
+        <div class="card mb-3">
+
+            <div class="card-header text-center">
+                <a href="{% url 'event' event.id %}" class="text-dark fw-bold "><h4>{{event.name}}</h4></a>
+            </div>
+            <div class="card-body">
+                <p><label class="fw-bold">Venue :</label> {{event.venue}}</p>
+                <p><label class="fw-bold">Start Date :</label> {{event.start_date}}</p>
+                <p><label class="fw-bold">Event Description : </label>{{event.description}}</p>
+            </div>
+            <a href="{% url 'generate-ticket' event.id %}" class="btn mb-2 text-white" style="background-color: #191A69;">Generate Ticket</a>
+
+        </div>
+        {% endfor %}
+
+</div>
+{% endblock content %}
+
+

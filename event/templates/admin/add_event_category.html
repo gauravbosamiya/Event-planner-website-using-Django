@@ -1,0 +1,28 @@
+{% extends 'admin/admin_base.html' %}
+{% block content %}
+
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="inputEmail4">Name</label>
+          <input type="text" class="form-control" id="inputEmail4" name="name">
+        </div>
+      </div>
+         <div class="custom-file">
+            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="img">
+            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+        </div>
+        <div class="form-group mt-2">
+            <label>Scheduled Status</label>
+            <select class="form-select form-select-sm form-control" name="status" aria-label="Small select example">
+              <option selected>Open this select menu</option>
+              <option value="Active"> Active</option>
+              <option value="Completed">Completed</option>
+            </select>
+        </div>
+      <button type="submit" class="btn btn-primary">Add Category</button>
+    </form>
+</div>
+{% endblock content %}

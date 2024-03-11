@@ -1,0 +1,41 @@
+{% extends 'admin/admin_base.html' %}
+{% block content %}
+<div class="container my-3">
+    {% if messages %}
+    {% for message in messages %}
+   <div class="alert alert-warning alert-dismissible fade show" role="alert">
+       {{messages}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">End Date</th>
+        <th scope="col">Status</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for event in events%}
+    <tr>
+
+      <th scope="row">{{event.id}}</th>
+      <td>{{event.name}}</td>
+      <td>{{event.start_date}}</td>
+      <td>{{event.end_date}}</td>
+        <td>{{event.status}}</td>
+      <td><a href="{% url 'delete-event' event.id %}">Delete</a> | <a href="{% url 'update-event' event.id %}">Update</a> </td>
+
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+</div>
+{% endblock content %}

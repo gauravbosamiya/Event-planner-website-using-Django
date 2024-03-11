@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block css %}
+.card{
+    transition: transform 0.3s ease-in-out;
+}
+.card:hover{
+    transform:scale(0.95);
+}
+{% endblock css %}
+{% block content %}
+
+
+<div class="container">
+    <div class="row">
+
+{% for events in event_list %}
+    <div class="col-md-3">
+
+        <a href="{% url 'event' events.id %}" >
+        <div class="card my-4" style="width: 18rem;">
+
+          <img src="{{events.image.url}}"  alt="..." height="200">
+
+          <div class="card-body ">
+              <h5>{{events.name}}</h5>
+<!--            <p class="card-text">{{events.description | slice:":150"}}</p>-->
+          </div>
+        </div>
+</a>
+        </div>
+{% endfor %}
+</div>
+</div>
+
+{% endblock content %}

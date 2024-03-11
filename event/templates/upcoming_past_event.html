@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-3">
+
+    <div class="row">
+
+        {% for events in active_event %}
+        {% if events.status == 'active' %}
+
+        <div class="card mb-3">
+            <div class="row">
+
+                <div class="col-md-3 p-0">
+                    <img src="{{events.image.url}}" class="img" style="height:222px; width:350px">
+                </div>
+                <div class="col-md-8 mb-4 mt-3 ms-4">
+                    <label class="fw-bold">{{events.name}}</label><br>
+                    <label>Start Date : </label> {{events.start_date}}<br>
+                    <label><label>Category : </label> {{events.category}}</label>
+                    <p>{{events.description | slice:":115"}}...</p>
+                    <a href="{% url 'event' events.id %}" class="btn btn-outline-dark">View More Details</a>
+                </div>
+            </div>
+        </div>
+        {% elif events.status == 'completed' %}
+
+        <div class="card mb-3">
+            <div class="row">
+                <div class="col-md-3 p-0">
+                    <img src="{{events.image.url}}" class="img" style="height:222px; width:350px">
+                </div>
+                <div class="col-md-8 mb-4 mt-3 ms-4">
+                    <label class="fw-bold">{{events.name}}</label><br>
+                    <label>Start Date : </label> {{events.start_date}}<br>
+                    <label><label>Category : </label> {{events.category}}</label>
+                    <p>{{events.description | slice:":115"}}...</p>
+                    <a href="{% url 'event' events.id %}" class="btn btn-outline-dark">View More Details</a>
+                </div>
+            </div>
+        </div>
+<!--        <a href="{% url 'event' events.id %}">{{events.name}}</a>-->
+<!--        <strong>{{events.status}}</strong><br>-->
+
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
+
+{% block js %}
+
+{% endblock js %}
+
+
+
+

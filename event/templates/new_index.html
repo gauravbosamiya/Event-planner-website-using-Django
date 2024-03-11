@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Campus Event Planner</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Favicons -->
+  <link href="C:\Users\Monisha Samanta\Downloads\WhatsApp Image 2024-02-29 at 15.29.27.jpeg" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="C:\bootstrap-5.3.3-dist\bootstrap-5.3.3-dist\css\bootstrap.css" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'style.css' %}" rel="stylesheet">
+  <!-- =======================================================
+  * Template Name: FlexStart
+  * Updated: Jan 29 2024 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  <script src="{% static 'https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js' %}"></script>
+  <script src="{% static 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js' %}"></script>
+</head>
+
+<body>
+  <script>
+    $(document).ready(function () {
+      $('[data-toggle="popover"]').popover();
+    });
+  </script>
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top nav-color ">
+    <div style="background-color: #191A69;">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between ">
+      <a href="#" class="logo d-flex align-items-center">
+        <img src="C:\Users\Monisha Samanta\Downloads\WhatsApp Image 2024-02-29 at 20.56.35.jpeg"
+          class="img-fluid rounded-circle circular-img " alt="Circular Image">
+        <span style="color: white;">Eventa</span>
+      </a>
+
+      <nav id="navbar" class="navbar ">
+        <ul>
+          <li><a class="nav-link scrollto active nav-color" style="color: white;" href="#hero">Home</a></li>
+          <li class="dropdown"><a href="#" style="color: white;"><span>Event</span> <i
+                class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a class="nav-link scrollto" href="{% url 'upcoming-event' %}" style="color: white;">Upcoming Event</a></li>
+              <li><a class="nav-link scrollto" href="{% url 'past-events' %}" style="color: white;">Past Event</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#" style="color:white;"><span>Categories</span></a><li>
+          <li><a href="#" data-toggle="popover" data-bs-content="Bottom popover" title="Popover Header"
+              data-content="Some content inside the popover jehrjekh djehdj jdgeuhgj" style="color:white;">Winners</a></li>
+          <li><a class="nav-link scrollto" style="color:white" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" style="color:white;" href="#contact">Contact</a></li>
+          <li><a class="getstarted scrollto" style="background-color: #D5AF52;" href="{% url 'login'%}">Login</a></li>
+          <li><a class="getstarted scrollto" style="background-color: #D5AF52;" href="{% url 'register' %}">Sign Up</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+    </div></div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center">
+
+    <div class="container-fluid">
+      <div id="carouselExampleCaptions" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/1.jpeg' %}" class="d-block w-100" height="550" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 class="text-dark fw-bold">First slide label</h5>
+        <p class="text-dark fw-bold">Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/2.jpeg' %}" class="d-block w-100" height="550" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 class="text-dark fw-bold">Second slide label</h5>
+        <p class="text-dark fw-bold">Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/3.jpeg' %}" class="d-block w-100" height="550" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+
+      <div class="carousel-item">
+      <img src="{% static 'images/4.jpeg' %}" class="d-block w-100" height="550" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 class="text-dark fw-bold">Third slide label</h5>
+        <p class="text-dark fw-bold">Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Values Section ======= -->
+    <section id="values" class="values">
+
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <p>Upcoming Events</p>
+        </header>
+
+        <div class="row">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="box">
+              <img src="assets/img/values-1.png" class="img-fluid" alt="">
+              <h3>Technical Events</h3>
+              <p>"Experience the forefront of innovation at our technical event. Explore breakthroughs, workshops, and
+                networking opportunities."</p>
+                <a href="registration.html" class="read-more"><span>To Register Click Here</span> <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
+            <div class="box">
+              <img src="{% static 'images/Sports-Free-Download-PNG.png' %}" class="img-fluid" alt="">
+              <h3>Sports</h3>
+              <p>"Dive into the thrill of sportsmanship and competition. Join us for exhilarating matches, camaraderie,
+                and unforgettable moments of victory."</p>
+                <a href="" class="read-more"><span>To Register Click Here</span> <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
+            <div class="box">
+              <img src="assets/img/values-3.png" class="img-fluid" alt="">
+              <h3>Musical Events</h3>
+              <p>"Feel the rhythm, hear the beat, and experience the magic of live music. Join us for an electrifying
+                showcase of talent, melodies, and unforgettable performances.".</p>
+              <i></i>
+              <a href="#" class="read-more"><span>To Register Click Here</span> <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="values1" class="values1">
+
+      <div class="container" data-aos="fade-up">
+        <header class="section-header">
+          <p>Past Events</p>
+        </header>
+
+        <div class="row">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="box">
+              <img src="assets/img/values-1.png" class="img-fluid" alt="">
+              <h3>Cultural Fest</h3>
+              <p>"Celebrate diversity, creativity, and tradition at our cultural fest. Join us for a vibrant showcase of
+                music, dance, art, and flavors from around the world."</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
+            <div class="box">
+              <img src="assets/img/values-2.png" class="img-fluid" alt="">
+              <h3>Atmiya Avsar</h3>
+              <p>"Immerse yourself in a cultural extravaganza! Join us for a dynamic fusion of music, dance, cuisine,
+                and heritage at our cultural fest."</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
+            <div class="box">
+              <img src="assets/img/values-3.png" class="img-fluid" alt="">
+              <h3>Ganesh Utsav</h3>
+              <p>"Ganesh Chaturthi: Celebrating the birth of Lord Ganesha, the remover of obstacles. Joyful festivities,
+                prayers, and colorful processions mark this auspicious Hindu festival."</p>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section><!-- End Values Section -->
+
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+
+      <div class="container" data-aos="fade-up">
+        <div class="row gx-0">
+
+          <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="content">
+              <h3>Who We Are</h3>
+              <h2>"Welcome to EVENTA..." </h2>
+              <p>
+                Where we turn your dreams into unforgettable events. With creativity, dedication, and attention to
+                detail, we craft personalized experiences that exceed expectations. From weddings to corporate
+                gatherings, we're here to bring your vision to life. Welcome to a world of endless possibilities.
+              </p>
+              <div class="text-center text-lg-start">
+                <a href="#"
+                  class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                  <span>Read More</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+            <img src="assets/img/about.jpg" class="img-fluid" alt="">
+          </div>
+
+        </div>
+      </div>
+
+    </section><!-- End About Section -->
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="count-box" style="background-color: #D5AF52;">
+              <i class="bi bi-emoji-smile" style="color: #191A69;"></i>
+              <div>
+                <span data-purecounter-start="0" data-purecounter-end="46" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Total Participants</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="count-box" style="background-color: #D5AF52;">
+              <i class="bi bi-journal-richtext" style="color: #ee6c20;"></i>
+              <div>
+                <span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Upcoming Events</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="count-box" style="background-color: #D5AF52;">
+              <i class="bi bi-headset" style="color: #15be56;"></i>
+              <div>
+                <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Past Events</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="count-box" style="background-color: #D5AF52;">
+              <i class="bi bi-people" style="color: #bb0852;"></i>
+              <div>
+                <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Sponsors</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Counts Section -->
+
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+
+      <div class="container" data-aos="fade-up">
+
+        <!-- Feature Icons -->
+        <div class="row feature-icons" data-aos="fade-up">
+          <header class="section-header">
+            <p>Our Features</p>
+          </header>
+
+          <div class="row">
+
+            <div class="col-xl-4 text-center" data-aos="fade-right" data-aos-delay="100">
+              <img src="assets/img/features-3.png" class="img-fluid p-4" alt="">
+            </div>
+
+            <div class="col-xl-8 d-flex content">
+              <div class="row align-self-center gy-4" >
+
+                <div class="col-md-6 icon-box" data-aos="fade-up">
+                  <i class="bi bi-emoji-smile"  style="color: #191A69;"></i>
+                  <div>
+                    <h4 style="background-color: #D5AF52; text-align: center;">User Friendly</h4>
+                    <p style="color: #191A69;">Easy to use, intuitive, and accessible, enhancing the overall user experience and minimizing
+                      complexity or confusion</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+                  <i class="bi bi-bell"  style="color: #191A69;"></i>
+                  <div>
+                    <h4 style="background-color: #D5AF52; text-align: center;">Instant Notification</h4>
+                    <p style="color: #191A69;" >Immediate delivery of alerts or messages to users or devices as soon as an event or trigger
+                      occurs.</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+                  <i class="bi bi-person-vcard"  style="color: #191A69;"></i>
+                  <div>
+                    <h4 style="background-color: #D5AF52; text-align: center;">Easy Registration</h4>
+                    <p style="color: #191A69;">a straightforward registration form with fields for essential information like name, email, and any necessary details for the event.</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+                  <i class="bi bi-share"  style="color: #191A69;"></i>
+                  <div>
+                    <h4 style="background-color: #D5AF52; text-align: center;">Easy Sharing</h4>
+                    <p style="color: #191A69;">You can quickly share details about an event by posting a link to it on platforms like Facebook,
+                      Twitter, or WhatsApp, allowing people to easily access the event information and RSVP.</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
+                  <i class="bi bi-trophy" style="color: #191A69;"></i>
+                  <div>
+                    <h4 style="background-color: #D5AF52; text-align: center;">Winner List</h4>
+                    <p style="color: #191A69;">Digital board where outcomes or scores of competitions or events are exhibited for public viewing</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
+                  <i class="bi bi-collection"  style="color: #191A69;"></i>
+                  <div>
+                    <h4 style="background-color: #D5AF52; text-align: center;">Suggestion Box</h4>
+                    <p style="color: #191A69;">A section where people can submit ideas openly, offering an avenue for individuals to contribute
+                      suggestions or concerns to an organization or group.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div><!-- End Feature Icons -->
+      </div>
+
+    </section><!-- End Features Section -->
+
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <p>Past Events</p>
+        </header>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-sports">Sports</li>
+              <li data-filter=".filter-musical">Musical</li>
+              <li data-filter=".filter-tech">Technical Events</li>
+              <li data-filter=".filter-culture">Cultural Events</li>
+              <li data-filter=".filter-literature">Literature Events</li>
+              <li data-filter=".filter-arts">Arts and Crafts</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-sports">
+            <div class="portfolio-wrap">
+              <img src="C:\Users\Monisha Samanta\Downloads\WhatsApp Image 2024-03-01 at 10.13.26.jpeg" class="img-fluid"
+                alt="">
+              <div class="portfolio-info">
+                <h4>App 1</h4>
+                <p>App</p>
+                <div class="portfolio-links">
+                  <a href="C:\Users\Monisha Samanta\Downloads\WhatsApp Image 2024-03-01 at 10.13.26.jpeg"
+                    data-gallery="portfolioGallery" class="portfokio-lightbox" title="App 1"><i
+                      class="bi bi-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-musical">
+            <div class="portfolio-wrap">
+              <img src="C:\Users\Monisha Samanta\Downloads\WhatsApp Image 2024-03-01 at 10.13.42 (1).jpeg"
+                class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Web 3</h4>
+                <p>Web</p>
+                <div class="portfolio-links">
+                  <a href="C:\Users\Monisha Samanta\Downloads\WhatsApp Image 2024-03-01 at 10.13.42 (1).jpeg"
+                    data-gallery="portfolioGallery" class="portfokio-lightbox" title="Web 3"><i
+                      class="bi bi-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-tech">
+            <div class="portfolio-wrap">
+              <img src="C:\Users\Monisha Samanta\Downloads\WhatsApp Image 2024-03-01 at 10.13.29.jpeg" class="img-fluid"
+                alt="">
+              <div class="portfolio-info">
+                <h4>App 2</h4>
+                <p>App</p>
+                <div class="portfolio-links">
+                  <a href="C:\Users\Monisha Samanta\Downloads\WhatsApp Image 2024-03-01 at 10.13.29.jpeg"
+                    data-gallery="portfolioGallery" class="portfokio-lightbox" title="App 2"><i
+                      class="bi bi-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-culture">
+            <div class="portfolio-wrap">
+              <img src="C:\Users\Monisha Samanta\Downloads\WhatsApp Image 2024-03-01 at 10.13.42.jpeg" class="img-fluid"
+                alt="">
+              <div class="portfolio-info">
+                <h4>Card 2</h4>
+                <p>Card</p>
+                <div class="portfolio-links">
+                  <a href="C:\Users\Monisha Samanta\Downloads\WhatsApp Image 2024-03-01 at 10.13.42.jpeg"
+                    data-gallery="portfolioGallery" class="portfokio-lightbox" title="Card 2"><i
+                      class="bi bi-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-literature">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Web 2</h4>
+                <p>Web</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery"
+                    class="portfokio-lightbox" title="Web 2"><i class="bi bi-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-arts">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>App 3</h4>
+                <p>App</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery"
+                    class="portfokio-lightbox" title="App 3"><i class="bi bi-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-arts">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Card 1</h4>
+                <p>Card</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery"
+                    class="portfokio-lightbox" title="Card 1"><i class="bi bi-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-culture">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Card 3</h4>
+                <p>Card</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery"
+                    class="portfokio-lightbox" title="Card 3"><i class="bi bi-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-literature">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Web 3</h4>
+                <p>Web</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery"
+                    class="portfokio-lightbox" title="Web 3"><i class="bi bi-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- End Portfolio Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <b>
+            <h2 style="color: #191A69;">Reviews</h2>
+          </b>
+          <p>What they are saying about us</p>
+        </header>
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="200">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" style="background-color: #D5AF52;">
+                <div class="stars">
+                  <i class="bi bi-star-fill" style="color: #191A69;"></i><i class="bi bi-star-fill"
+                    style="color: #191A69;"></i><i class="bi bi-star-fill" style="color: #191A69;"></i><i
+                    class="bi bi-star-fill" style="color: #191A69;"></i><i class="bi bi-star-fill"
+                    style="color: white;"></i>
+                </div>
+                <p style="color: #191A69;">
+                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium
+                  quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                </p>
+                <div class="profile mt-auto">
+                  <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                  <h3 style="color: #191A69;">Saul Goodman</h3>
+                  <h4 style="color: white;">Ceo &amp; Founder</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" style="background-color: #D5AF52;">
+                <div class="stars">
+                  <i class="bi bi-star-fill" style="color: #191A69;"></i><i class="bi bi-star-fill"
+                    style="color: #191A69;"></i><i class="bi bi-star-fill" style="color: #191A69;"></i><i
+                    class="bi bi-star-fill" style="color: #191A69;"></i><i class="bi bi-star-fill"
+                    style="color: #191A69;"></i>
+                </div>
+                <p style="color: #191A69;">
+                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis
+                  quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                </p>
+                <div class="profile mt-auto">
+                  <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                  <h3 style="color: #191A69;">Sara Wilsson</h3>
+                  <h4 style="color: white;">Designer</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" style="background-color: #D5AF52;">
+                <div class="stars">
+                  <i class="bi bi-star-fill" style="color: #191A69;"></i><i class="bi bi-star-fill"
+                    style="color: #191A69;" style="color: #191A69;"></i><i class="bi bi-star-fill"
+                    style="color: #191A69;"></i><i class="bi bi-star-fill" style="color: white"></i><i
+                    class="bi bi-star-fill" style="color: white;"></i>
+                </div>
+                <p style="color: #191A69;">
+                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim
+                  tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                </p>
+                <div class="profile mt-auto">
+                  <img src="{% static 'assets/img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" alt="">
+                  <h3 style="color: #191A69;">Jena Karlis</h3>
+                  <h4 style="color: white;">Store Owner</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" style="background-color: #D5AF52;">
+                <div class="stars">
+                  <i class="bi bi-star-fill" style="color: #191A69;"></i><i class="bi bi-star-fill"
+                    style="color: #191A69;" style="color: #191A69;"></i><i class="bi bi-star-fill"
+                    style="color: #191A69;"></i><i class="bi bi-star-fill" style="color: #191A69;"></i><i
+                    class="bi bi-star-fill" style="color: white;"></i>
+                </div>
+                <p style="color: #191A69;">
+                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit
+                  minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                </p>
+                <div class="profile mt-auto">
+                  <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+                  <h3 style="color: #191A69;">Matt Brandon</h3>
+                  <h4 style="color: white;">Freelancer</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" style="background-color: #D5AF52;">
+                <div class="stars">
+                  <i class="bi bi-star-fill" style="color: #191A69;"></i><i class="bi bi-star-fill"
+                    style="color: #191A69;"></i><i class="bi bi-star-fill" style="color: #191A69;"></i><i
+                    class="bi bi-star-fill" style="color: white;"></i><i class="bi bi-star-fill"
+                    style="color: white;"></i>
+                </div>
+                <p style="color: #191A69;">
+                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa
+                  labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                </p>
+                <div class="profile mt-auto">
+                  <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                  <h3 style="color: #191A69;">John Larson</h3>
+                  <h4 style="color: white;">Entrepreneur</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- End Testimonials Section -->
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
+
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <p>Our Pillars</p>
+        </header>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
+            style="background-color: #191A69;" data-aos-delay="100">
+            <div class="member" style="background-color: #D5AF52;">
+              <div class="member-img">
+                <img src="C:\Users\Monisha Samanta\Downloads\WhatsApp Image 2024-03-01 at 12.06.06.jpeg"
+                  class="img-fluid" style="color:#191A69;" height="100">
+              </div>
+              <div class="member-info">
+                <h4 style="color:#191A69;">Dr. Sheetal Tank</h4>
+                <span style="color:#2e2f82;">University Librarian</span>
+                <p style="color: aliceblue;">As Librarian, Dr Sheetal's dedication to curating a diverse collection of
+                  books, journals, and resources reflects her unwavering commitment to supporting research, learning,
+                  and intellectual exploration. Her meticulous organization and attention to detail ensure that every
+                  visitor can easily navigate the library's vast repository of knowledge.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" style="background-color:#D5AF52;"
+            data-aos-delay="200">
+            <div class="member" style="background-color:#191A69;">
+              <div class="member-img">
+                <img src="C:\Users\Monisha Samanta\Downloads\WhatsApp Image 2024-03-01 at 12.07.04.jpeg"
+                  class="img-fluid" alt="">
+              </div>
+              <div class="member-info">
+                <h4 style="color:#D5AF52;">Dr. G.D Acharya</h4>
+                <span style="color: #d1ba7f;">Principal</span>
+                <p style="color: aliceblue;">As Principal, Dr. Acharya champions a student-centric approach,
+                  prioritizing the cultivation of a vibrant and inclusive learning environment where innovation thrives
+                  and aspirations flourish. His leadership ethos is defined by transparency, integrity, and a relentless
+                  pursuit of excellence across all facets of academic life.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300"
+            style="background-color:#191A69;">
+            <div class="member" style="background-color:#D5AF52;">
+              <div class="member-img">
+                <img src="C:\Users\Monisha Samanta\Downloads\WhatsApp Image 2024-03-01 at 12.06.32.jpeg"
+                  class="img-fluid" alt="">
+              </div>
+              <div class="member-info">
+                <h4>Dr. Ashish Kothari</h4>
+                <span style="color:#2e2f82;">Depute Registrar</span>
+                <p style="color: aliceblue;">Dr. Ashish Kothari assumes the pivotal role of Deputy Registrar within our
+                  university, wielding his expertise in Director research ,Innovation and translation prowess to uphold
+                  the institution's standards of excellence and efficiency.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400"
+            style="background-color:#D5AF52;">
+            <div class="member" style="background-color:#191A69;">
+              <div class="member-img">
+                <img src="C:\Users\Monisha Samanta\Downloads\WhatsApp Image 2024-03-01 at 12.06.38.jpeg"
+                  class="img-fluid" alt="">
+              </div>
+              <div class="member-info">
+                <h4 style="color:#D5AF52;">Parul Mandaviya</h4>
+                <span style="color: #d1ba7f;">Coordinator-(CSCI) </span>
+                <p style="color: aliceblue;">As Coordinator, She is Managing Student Clubs, the Student Council,
+                  Mentor-Mentee programs, and the Alumni Association.Through collaborative efforts with industry
+                  stakeholders and the public, CSCI has evolved as an enabling structure within the University's
+                  organizational framework, fostering meaningful connections and enhancing the overall student
+                  experience.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- End Team Section -->
+
+    <!-- ======= Sponser Section ======= -->
+    <section id="clients" class="clients">
+
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <p>Our Sponsers</p>
+        </header>
+
+        <div class="clients-slider swiper">
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-1.png'%}" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-2.png'%}" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-3.png'%}" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-4.png'}" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-5.png'%}" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-6.png'%}" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-7.png'%}" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-8.png'%}" class="img-fluid" alt=""></div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+    </section><!-- End sponser Section -->
+
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <p>Contact Us</p>
+        </header>
+
+        <div class="row gy-4">
+          <div class="col-lg-6">
+            <div class="row gy-4">
+              <div class="col-md-6">
+                <div class="info-box" style="background-color: #D5AF52;">
+                  <i class="bi bi-geo-alt" style="color: #191A69;"></i>
+                  <h3>Address</h3>
+                  <p> Kalawad Road, Yogidham, Gurukul,<br>Rajkot, Gujarat 360005 ·</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="info-box" style="background-color: #D5AF52;">
+                  <i class="bi bi-telephone" style="color: #191A69;"></i>
+                  <h3>Call Us</h3>
+                  <p>+91 9876543210<br>+91 9123456789</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="info-box" style="background-color: #D5AF52;">
+                  <i class="bi bi-envelope" style="color: #191A69;"></i>
+                  <h3>Email Us</h3>
+                  <p>info@example.com<br>contact@example.com</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="info-box" style="background-color: #D5AF52;">
+                  <i class="bi bi-clock" style="color: #191A69;"></i>
+                  <h3>Open Hours</h3>
+                  <p>Monday - Friday<br>9:00AM - 05:00PM</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-lg-6">
+            <form action="#" method="post" class="php-email-form" style="background-color: #191A69;">
+              <div class="row gy-4">
+
+                <div class="col-md-6">
+                  <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                </div>
+
+                <div class="col-md-6 ">
+                  <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                </div>
+
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+                </div>
+
+                <div class="col-md-12">
+                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                  <button type="submit" style="background-color: #D5AF52;">Send Message</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Contact Section -->
+
+    <section id="suggest" class="suggest">
+      <div class="container">
+        <div class="row">
+            <div class="col" style="text-align: center;">
+                <h1>Suggestion Box</h1>
+                <form id="suggestionForm">
+                    <label for="suggestion">Submit Your Suggestion:</label><br>
+                    <textarea id="suggestion" name="suggestion" rows="4" cols="50"
+                        placeholder="Enter your suggestion here..." required></textarea><br>
+                    <button type="submit">Submit</button>
+                </form>
+                <div class="sticky-content">
+                    <h4>Sticky Content</h4>
+                    <p>This content will stick to the right side of the page.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </section>
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+
+
+    <div class="footer-top" style="background-color: #D5AF52;">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-5 col-md-12 footer-info">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <img src="C:\Users\Monisha Samanta\Downloads\WhatsApp Image 2024-02-29 at 20.56.35.jpeg" alt="">
+              <span>Eventa</span>
+            </a>
+            <p style="color: aliceblue;">Step into a world of wonder and excitement! Join us for an
+              unforgettable event that will ignite your senses and leave you inspired.</p>
+            <div class="social-links mt-3">
+              <a href="https://twitter.com/" class="twitter"><i class="bi bi-twitter" style="color: #191A69;"></i></a>
+              <a href="https://www.facebook.com/" class="facebook"><i class="bi bi-facebook"
+                  style="color: #191A69;"></i></a>
+              <a href="https://www.instagram.com/" class="instagram"><i class="bi bi-instagram"
+                  style="color: #191A69;"></i></a>
+              <a href="https://www.linkedin.com/" class="linkedin"><i class="bi bi-linkedin"
+                  style="color: #191A69;"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+            <h4>Contact Us</h4>
+            <p>
+              Kalawad Road, Yogidham, Gurukul <br>
+              Rajkot, Gujarat 360005 ·<br><br>
+              <strong>Phone:</strong> +91 9876543210<br>
+              <strong>Email:</strong> info@example.com<br>
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Eventa</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/flexstart-bootstrap-startup-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">XYZ</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a class="btn btn-primary sticky-button" style="background-color: #191A69;" href="#suggest">Suggestion Box</a>
+
+  <script src="{% static 'https://code.jquery.com/jquery-3.5.1.slim.min.js'%}"></script>
+  <script src="{% static 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js'%}"></script>
+  <script src="{% static 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js' %}"></script>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center" style="background-color: #191A69;"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js'%}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js'%}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

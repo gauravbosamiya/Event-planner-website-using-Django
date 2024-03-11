@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if event.status == 'active' %}
+<div class="container">
+    <div class="card mx-auto my-4" style="width:50rem;height:20rem;">
+        <form method="POST">
+        {% csrf_token %}
+            <div class="card-header bg-dark">
+                <h3 class="text-center text-light">Register For Event</h3>
+            </div>
+
+            <div class="card-body text-center bg-light">
+                <h3 class="text-center fw-bold">{{event.name}}</h3>
+                <p class="text-center fw-bold">{{event.start_date}} - {{event.end_date}}</p>
+                <p>{{event.description}}</p>
+
+                 <a href="{% url 'event' event.id %}" class="btn btn-outline-dark">Go back</a>
+                <input type="submit" value="Confirm" class="btn btn-dark">
+
+            </div>
+        </form>
+    </div>
+</div>
+{% else %}
+<h3 class="text-center">Registration has been closed</h3>
+{% endif %}
+{% endblock content %}
